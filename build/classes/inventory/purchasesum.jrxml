@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[select name from company]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 2">
+		<queryString language="SQL">
+			<![CDATA[select supplier from purchasedpaidholder]]>
+		</queryString>
+		<field name="supplier" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 3">
+		<queryString language="SQL">
+			<![CDATA[SELECT invoiceno from purchasedpaidholder]]>
+		</queryString>
+		<field name="invoiceno" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 4">
+		<queryString language="SQL">
+			<![CDATA[select amtpaid from purchasedpaidholder]]>
+		</queryString>
+		<field name="amtpaid" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 5">
+		<queryString language="SQL">
+			<![CDATA[select amtowed from purchasedpaidholder]]>
+		</queryString>
+		<field name="amtowed" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 6">
+		<queryString language="SQL">
+			<![CDATA[SELECT round(sum(amtowed-amtpaid),2) from purchasedpaidholder]]>
+		</queryString>
+		<field name="round(sum(amtowed-amtpaid),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 7">
+		<queryString language="SQL">
+			<![CDATA[select round((amtowed),2) from purchasedpaidholder]]>
+		</queryString>
+		<field name="round((amtowed),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 8">
+		<queryString language="SQL">
+			<![CDATA[select round((amtpaid),2) from purchasedpaidholder]]>
+		</queryString>
+		<field name="round((amtpaid),2)" class="java.lang.Double"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select * from trancpurchasesholder]]>
+	</queryString>
+	<field name="amtpaid" class="java.lang.Double"/>
+	<field name="date" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="65" width="555" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="65" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="65" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT PAID]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="181" y="0" width="193" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="217">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="217" height="20"/>
+								<textElement>
+									<font fontName="Arial Rounded MT Bold" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="183" y="20" width="193" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASE PAYMENT HISTORY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="44" width="84" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INVOICE NO:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="322" y="44" width="161" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 2">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{supplier}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="258" y="45" width="64" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="126" y="43" width="118" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{invoiceno}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="125" y="65" width="1" height="20"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="15" y="0" width="100" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="Ksh #,##0.00">
+				<reportElement x="130" y="0" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{amtpaid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="322" y="5" width="81" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL AMT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="25" width="99" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT PAID:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-2" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="331" y="45" width="72" height="20"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BALANCE:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="403" y="45" width="108" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 6">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="123">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="123" height="20"/>
+								<textElement>
+									<font fontName="Arial Rounded MT Bold" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round(sum(amtowed-amtpaid),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" x="403" y="5" width="108" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 7">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="121">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="121" height="20"/>
+								<textElement>
+									<font fontName="Arial Rounded MT Bold" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round((amtowed),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" x="403" y="25" width="108" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 8">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="137">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="137" height="20"/>
+								<textElement>
+									<font fontName="Arial Rounded MT Bold" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round((amtpaid),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

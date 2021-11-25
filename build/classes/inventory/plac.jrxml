@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[select name from company]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 2">
+		<queryString language="SQL">
+			<![CDATA[select sales from profitloss]]>
+		</queryString>
+		<field name="sales" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 3">
+		<queryString language="SQL">
+			<![CDATA[select openingstock from profitloss]]>
+		</queryString>
+		<field name="openingstock" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 4">
+		<queryString language="SQL">
+			<![CDATA[select purchases from profitloss]]>
+		</queryString>
+		<field name="purchases" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 5">
+		<queryString language="SQL">
+			<![CDATA[select closingstock from profitloss]]>
+		</queryString>
+		<field name="closingstock" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 6">
+		<queryString language="SQL">
+			<![CDATA[select sum((openingstock+purchases)-closingstock) from profitloss]]>
+		</queryString>
+		<field name="sum((openingstock+purchases)-closingstock)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 7">
+		<queryString language="SQL">
+			<![CDATA[select sum(sales-((openingstock+purchases)-closingstock)) from profitloss]]>
+		</queryString>
+		<field name="sum(sales-((openingstock+purchases)-closingstock))" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 8">
+		<queryString language="SQL">
+			<![CDATA[select expenses from profitloss]]>
+		</queryString>
+		<field name="expenses" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 9">
+		<queryString language="SQL">
+			<![CDATA[select sum(sales-((openingstock+purchases)-closingstock)-expenses) from profitloss]]>
+		</queryString>
+		<field name="sum(sales-((openingstock+purchases)-closingstock)-expenses)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 10">
+		<queryString language="SQL">
+			<![CDATA[select round((sales),2) from profitloss]]>
+		</queryString>
+		<field name="round((sales),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 11">
+		<queryString language="SQL">
+			<![CDATA[SELECT ADDRESS FROM COMPANY]]>
+		</queryString>
+		<field name="ADDRESS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 12">
+		<queryString language="SQL">
+			<![CDATA[SELECT PHONE FROM COMPANY]]>
+		</queryString>
+		<field name="PHONE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="New Dataset 13">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(closingstock),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(closingstock),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 14">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-((openingstock+purchases)-closingstock)-expenses),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-((openingstock+purchases)-closingstock)-expenses),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 15">
+		<queryString language="SQL">
+			<![CDATA[select vat from profitloss]]>
+		</queryString>
+		<field name="vat" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 16">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-((openingstock+purchases)-closingstock)-expenses-vat),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-((openingstock+purchases)-closingstock)-expenses-vat),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 17">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(vat+expenses),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(vat+expenses),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 18">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(expenses+0),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(expenses+0),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 19">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-(openingstock-purchases)-(expenses)),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-(openingstock-purchases)-(expenses)),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 20">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-openingstock-purchases-closingstock),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-openingstock-purchases-closingstock),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 21">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-((openingstock-closingstock)-purchases)),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-((openingstock-closingstock)-purchases)),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 22">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-((openingstock-closingstock)+purchases)-expenses),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-((openingstock-closingstock)+purchases)-expenses),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 23">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(sales-(openingstock-closingstock+(purchases))-expenses),2) from profitloss]]>
+		</queryString>
+		<field name="round(sum(sales-(openingstock-closingstock+(purchases))-expenses),2)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select * from profitloss]]>
+	</queryString>
+	<field name="openingstock" class="java.lang.Double"/>
+	<field name="closingstock" class="java.lang.Double"/>
+	<field name="purchases" class="java.lang.Double"/>
+	<field name="sales" class="java.lang.Double"/>
+	<field name="expenses" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="170" y="0" width="215" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="228">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="228" height="20"/>
+								<textElement>
+									<font fontName="Arial Unicode MS" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="170" y="61" width="215" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Statement of profit and loss for the period ended]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="386" y="61" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="171" y="20" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[ADDRESS:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="230" y="20" width="109" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 11">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{ADDRESS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="1" y="82" width="554" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="175" y="41" width="44" height="20"/>
+				<textElement/>
+				<text><![CDATA[PHONE:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="220" y="41" width="119" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 12">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{PHONE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="508" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="11" width="76" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REVENUES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="45" width="41" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Sales:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="82" width="119" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COST OF GOODS SOLD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="113" width="76" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Opening stock:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="157" y="113" width="105" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font fontName="Arial Unicode MS"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{openingstock}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="26" y="157" width="76" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Purchases:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="157" y="157" width="105" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 4">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font fontName="Arial Unicode MS"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{purchases}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="26" y="195" width="76" height="20"/>
+				<textElement/>
+				<text><![CDATA[Closing stock:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="102" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="1" y="29" width="554" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="26" y="238" width="90" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Cost of Goods sold:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="278" y="236" width="105" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 6">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font fontName="Arial Unicode MS" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sum((openingstock+purchases)-closingstock)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="24" y="285" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS"/>
+				</textElement>
+				<text><![CDATA[Gross profit/Loss:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="278" y="285" width="105" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 7">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="113">
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="113" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{sum(sales-((openingstock+purchases)-closingstock))}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="30" y="342" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial Unicode MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXPENSES:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="362" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="406" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="485" width="105" height="15"/>
+				<textElement/>
+				<text><![CDATA[Profit/Loss after Tax:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="278" y="45" width="104" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 10">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font fontName="Arial Unicode MS"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round((sales),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" x="157" y="195" width="105" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 13">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{round(sum(closingstock),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" x="278" y="451" width="104" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 15">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{vat}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" x="278" y="481" width="104" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 16">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round(sum(sales-((openingstock+purchases)-closingstock)-expenses-vat),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="30" y="375" width="97" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Expenses:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="453" width="31" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tax:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="278" y="375" width="104" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 18">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{round(sum(expenses+0),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="418" width="113" height="20"/>
+				<textElement/>
+				<text><![CDATA[Profit/Loss Before Tax:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="278" y="418" width="104" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 23">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="Ksh #,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{round(sum(sales-(openingstock-closingstock+(purchases))-expenses),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

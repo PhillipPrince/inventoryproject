@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="805"/>
+	<property name="ireport.y" value="73"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(quantity*price),2)from stock]]>
+		</queryString>
+		<field name="round(sum(quantity*price),2)" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="New Dataset 2">
+		<queryString language="SQL">
+			<![CDATA[select round(sum(buyingprice*quantity),2) from stock where quantity>0;]]>
+		</queryString>
+		<field name="round(sum(buyingprice*quantity),2)" class="java.lang.Double"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[select Itemcode,name,description,quantity,buyingprice, units,(quantity*buyingprice) from stock where quantity>0]]>
+	</queryString>
+	<field name="Itemcode" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.Double"/>
+	<field name="buyingprice" class="java.lang.Double"/>
+	<field name="units" class="java.lang.String"/>
+	<field name="(quantity*buyingprice)" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="252" y="11" width="298" height="32"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALL STOCK AVAILABLE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="802" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-5" y="0" width="802" height="20" backcolor="#C0C0C0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Itemcode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Buying Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="0" width="114" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Value]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="114" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Itemcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="114" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="114" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="0" width="114" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{units}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="114" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="456" y="0" width="100" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{buyingprice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="1" width="117" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{(quantity*buyingprice)}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="4">
+			<line>
+				<reportElement x="0" y="1" width="802" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="591" y="3" width="93" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Stock Value:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="685" y="3" width="117" height="20"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 2">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:detailCell height="20">
+							<textField pattern="#,##0.00">
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{round(sum(buyingprice*quantity),2)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
